@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- bean definitions here -->
+
+    <bean name="Z4" class="org.example.apr25springioc.Car">
+        <constructor-arg name="make" value="BMW"/>
+        <constructor-arg name="model" value="Z4"/>
+        <constructor-arg name="year" value="2025"/>
+    </bean>
+
+    <bean name="M4" class="org.example.apr25springioc.Car">
+        <constructor-arg name="make" value="BMW"/>
+        <constructor-arg name="model" value="M4"/>
+        <constructor-arg name="year" value="2025"/>
+    </bean>
+
+
+</beans>
