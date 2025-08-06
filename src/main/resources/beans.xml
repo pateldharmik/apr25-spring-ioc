@@ -1,22 +1,92 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="
-        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util https://www.springframework.org/schema/util/spring-util.xsd">
 
     <!-- bean definitions here -->
+    <!--
+        <bean name="Z4" class="org.example.apr25springioc.Car">
+            <property name="make" value="BMW"/>
+            <property name="model" value="Z4"/>
+            <property name="year" value="2025"/>
+        </bean>
 
-    <bean name="Z4" class="org.example.apr25springioc.Car">
-        <constructor-arg name="make" value="BMW"/>
-        <constructor-arg name="model" value="Z4"/>
-        <constructor-arg name="year" value="2025"/>
+        <bean name="M4" class="org.example.apr25springioc.Car">
+        </bean>
+    -->
+<!--
+
+    <bean id="carSet" class="org.example.apr25springioc.Car">
+        <property name="cars">
+            <set>
+                <bean class="org.example.apr25springioc.Car">
+                    <property name="make" value="Honda"/>
+                    <property name="model" value="Accord"/>
+                    <property name="year" value="2019"/>
+                </bean>
+                <bean class="org.example.apr25springioc.Car">
+                    <property name="make" value="Honda"/>
+                    <property name="model" value="Civic"/>
+                    <property name="year" value="2017"/>
+                </bean>
+                <bean class="org.example.apr25springioc.Car">
+                    <property name="make" value="Chevy"/>
+                    <property name="model" value="Malibu"/>
+                    <property name="year" value="2020"/>
+                </bean>
+            </set>
+        </property>
     </bean>
 
-    <bean name="M4" class="org.example.apr25springioc.Car">
-        <constructor-arg name="make" value="BMW"/>
-        <constructor-arg name="model" value="M4"/>
-        <constructor-arg name="year" value="2025"/>
+-->
+
+   <!-- <bean id="BMW_Z4" class="org.example.apr25springioc.Car" init-method="establishConnection"
+          destroy-method="destroyConnection">
+        <property name="make" value="BMW"/>
+        <property name="model" value="Z4"/>
+        <property name="year" value="2025"/>
+    </bean>
+-->
+    <bean id="BMW_M4" class="org.example.apr25springioc.Car">
+        <property name="make" value="BMW"/>
+        <property name="model" value="M4"/>
+        <property name="year" value="2025"/>
     </bean>
 
+    <bean id="Audi_R8" class="org.example.apr25springioc.Car">
+        <property name="make" value="Audi"/>
+        <property name="model" value="R8"/>
+        <property name="year" value="2024"/>
+    </bean>
+
+    <bean id="Audi_TT" class="org.example.apr25springioc.Car">
+        <property name="make" value="Audi"/>
+        <property name="model" value="TT"/>
+        <property name="year" value="2025"/>
+    </bean>
+
+    <bean id="Mercedes_S_Class" class="org.example.apr25springioc.Car">
+        <property name="make" value="Mercedes"/>
+        <property name="model" value="S Class"/>
+        <property name="year" value="2025"/>
+    </bean>
+
+    <bean id="Mercedes_Maybach" class="org.example.apr25springioc.Car">
+        <property name="make" value="Mercedes"/>
+        <property name="model" value="Maybach"/>
+        <property name="year" value="2026"/>
+    </bean>
+
+    <util:list id="carList" list-class="java.util.ArrayList">
+        <!--<ref bean="BMW_Z4"/>-->
+        <ref bean="Audi_TT"/>
+        <ref bean="Mercedes_Maybach"/>
+    </util:list>
+
+    <util:map id="carMap" map-class="java.util.HashMap">
+        <entry key-ref="BMW_M4" value-ref="BMW_M4"/>
+        <entry key-ref="Audi_R8" value-ref="Audi_R8"/>
+        <entry key-ref="Mercedes_S_Class" value-ref="Mercedes_S_Class"/>
+    </util:map>
 
 </beans>

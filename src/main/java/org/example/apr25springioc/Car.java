@@ -5,7 +5,8 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-@AllArgsConstructor
+import java.util.Set;
+
 @Getter
 @Setter
 @ToString
@@ -17,4 +18,13 @@ public class Car {
 
 	private Integer year;
 
+//	private Set<Car> cars;
+
+	public void establishConnection(){
+		System.out.println("Connection to the database established");
+	}
+
+	public void destroyConnection(){
+		System.out.println("Connection to the database destroyed");
+	}
 }
